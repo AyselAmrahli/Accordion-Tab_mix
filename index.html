@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+			<div id="accordion-tab">
+				<div id="accordion">
+					<div class="m-panel">
+						<div class="m-button b1" id="bachelor"><strong>F</strong></div>
+						<div class="m-panelContent p1"> <strong>FIRST</strong><br/>
+						</div>
+					</div>
+					<div class="m-panel">
+						<div class="m-button b2" id="master"><strong>S</strong></div>
+						<div class="m-panelContent p1"> <strong>SECOND</strong><br/>
+						</div>
+					</div>
+					<div class="m-panel">
+						<div class="m-button b1" id="phd"><strong>T</strong></div>
+						<div class="m-panelContent p1"> <strong>THIRD</strong><br/>
+						</div>
+					</div>
+				</div>
+				<div id="tab-content">
+					<div class="tab-pane bachelor active-tab">
+						<h1>TAB CONTENT 1</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum accusantium laborum quas laboriosam, temporibus saepe, reiciendis, reprehenderit consequuntur quasi eligendi ullam optio similique rerum. Fugiat deleniti, impedit excepturi atque a. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quidem voluptatem enim nulla beatae eius fuga dolor temporibus expedita iste! Maxime recusandae repellendus, vitae dolores voluptate, labore nulla perspiciatis earum.</p>
+					</div>
+					<div class="tab-pane master">
+						<h1>TAB CONTENT 2</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum accusantium laborum quas laboriosam, temporibus saepe, reiciendis, reprehenderit consequuntur quasi eligendi ullam optio similique rerum. Fugiat deleniti, impedit excepturi atque a. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quidem voluptatem enim nulla beatae eius fuga dolor temporibus expedita iste! Maxime recusandae repellendus, vitae dolores voluptate, labore nulla perspiciatis earum.</p>
+					</div>
+					<div class="tab-pane phd">
+						<h1>TAB CONTENT 3</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum accusantium laborum quas laboriosam, temporibus saepe, reiciendis, reprehenderit consequuntur quasi eligendi ullam optio similique rerum. Fugiat deleniti, impedit excepturi atque a. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quidem voluptatem enim nulla beatae eius fuga dolor temporibus expedita iste! Maxime recusandae repellendus, vitae dolores voluptate, labore nulla perspiciatis earum.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		// accordion&tab_MIX
+		$(document).ready(function(){
+		
+		activePanel = $("#accordion div.m-panel:first");
+		$(activePanel).addClass('active');
+		
+		$("#accordion").delegate('.m-panel', 'click', function(e){
+		if( ! $(this).is('.active') ){
+					$(activePanel).animate({width: "42px"}, {duration:300, queue:false});
+					$(this).animate({width: "86%"}, {duration:300,queue:false});
+					$('#accordion .m-panel').removeClass('active');
+					$(this).addClass('active');
+					activePanel = this;
+				};
+		});
+		$('#accordion .m-panel .m-button').click(function(){
+		$('#tab-content').find('.active-tab').removeClass('active-tab');
+		$(this).addClass('active-tab');
+		$('#tab-content').find('.active-tab').removeClass('active-tab');
+		$('.'+this.id+'').addClass('active-tab');
+		})
+		});
+		</script>
+	</body>
+</html>
