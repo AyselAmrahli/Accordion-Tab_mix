@@ -53,7 +53,7 @@
 		$("#accordion").delegate('.m-panel', 'click', function(e){
 		if( ! $(this).is('.active') ){
 					$(activePanel).animate({width: "42px"}, {duration:300, queue:false});
-					$(this).animate({width: "86%"}, {duration:300,queue:false});
+					$(this).animate({width: "800"}, {duration:300,queue:false});
 					$('#accordion .m-panel').removeClass('active');
 					$(this).addClass('active');
 					activePanel = this;
